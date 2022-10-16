@@ -1,0 +1,9 @@
+### ubuntu 防火墙命令
+
+```shell
+ufw status  # 查看状态
+ufw enable  # 开启
+ufw disable #关闭
+ufw allow 53 #允许外部访问53
+```
+

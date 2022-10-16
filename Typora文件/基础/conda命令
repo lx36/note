@@ -1,0 +1,59 @@
+#### conda is a tool for managing and deploying applications, environments and packages.
+
+conda 是一个包、环境的管理工具，主要用在 python、机器学习的开发中可以进行独立 python 环境的创建与隔离，并且可以在不同环境中切换，在各自环境中安装各自所需的包. 有别于 pip 的重要区别与优势是环境隔离的作用，且 conda 也提供了包安装管理的功能
+
+`conda -c pytorch torchtext` 
+
+1. 获取版本号： **conda --version** 或者 **conda -V**
+2. 获取帮助： conda --help/-h
+   * 查看某一命令的帮助，如update
+
+3. 环境管理
+   1. 查看环境管理的全部命令  conda env -h
+   2. 查看创建的环境    conda info -e  /conda env list
+   3. 创建环境 **conda create --name**  conda --version **python =**
+   4. 进入某个环境： conda  **activate** env_name
+   5. 退出当前环境：conda deactivate
+   6. 复制某个环境 conda create --name new_env_name --clone old env_name
+   7. 删除某个环境 conda remove --name env_name --all
+4. 包管理
+   1. 列举当前环境的所有包   conda list
+   2. 列举非当前环境下的所有包 conda list -n env_name
+   3. 为指定环境安装某个包 conda install -n env_name package_name
+5. 关于channel源
+   * 查看当前配置 conda config--show
+   * 查看当前使用源 conda config --show-sources
+   * 删除添加指定源 conda config -remove/add channels 'https://'
+6. 分享环境
+
+​        建立一个一模一样的环境（同一版本的python及各种包）
+
+         	1. activate target_env
+            2. conda env export > environment.yml	
+            3. conda env create -f environment.yml
+
+ 问题：
+
+conda虚拟环境下启动jupyter，jupyter不能使用该环境下的python
+
+ 
+
+### PiP     	
+
+PyPI仓库（Python Package Index）：官方的第三方仓库，所有人都可以下载第三方库或上传自己开发的库到PyPI	
+
+
+
+* pip install package-name
+* pip install matplotlib==3.4 （指定版本）
+* pip uninstall package-name
+* 更新： pip intall --upgrade/-U package-name
+* 查找指定包信息 pip show -f requests
+* 查看需要升级的包 pip list -o
+* 指定源安装 pip install -i 域名 package-name
+  * 清华：https://pypi.tuna.tsinghua.edu.cn/simple
+  * 阿里云：http://mirrors.aliyun.com/pypi/simple/
+  * 中科大：https://pypi.mirrors.ustc.edu.cn/simple/
+* 下载但不安装：pip download packag-name -d '某个路径'
+* 批量安装：pip install -r xxx.txt
+
